@@ -17,4 +17,11 @@ public class GlobalExceptionHandler {
                 .body(ex.getLocalizedMessage());
     }
 
+    @ExceptionHandler(UserAlreadyExists.class)
+    public ResponseEntity<?> duplicateEmail(RuntimeException ex) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(ex.getLocalizedMessage());
+    }
+
 }
