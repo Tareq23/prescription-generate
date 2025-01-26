@@ -2,7 +2,6 @@ package com.tareq23.prescription.service.impl;
 
 import com.tareq23.prescription.repository.UserRepository;
 import com.tareq23.prescription.service.UserService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -29,6 +29,11 @@ logging:
     root: INFO
     com.tareq23.prescription.config: DEBUG
 
+third-party-api:
+  rx-term:
+    all-concept: https://rxnav.nlm.nih.gov/REST/RxTerms/allconcepts.json
+
+
 token:
   signing:
     key: SECRET22k3j3k3j3k3j3k3j3k3j3k3j3k3j3k3j3k12KEYSECRET12KEYSECRET12KEYSECRET12KEYSECRET12KEYSECRET12KEY123456tareq23
