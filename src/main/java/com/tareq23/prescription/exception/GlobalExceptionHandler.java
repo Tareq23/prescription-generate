@@ -2,6 +2,7 @@ package com.tareq23.prescription.exception;
 
 
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -21,6 +22,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(UsernameNotFoundException.class)
     public ResponseEntity<?> unauthenticatedUser(RuntimeException ex){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getLocalizedMessage());
+    }
+
+    @ExceptionHandler(JwtException.class)
+    public ResponseEntity<?> invalidJwtToken(RuntimeException ex){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getLocalizedMessage());
     }
 

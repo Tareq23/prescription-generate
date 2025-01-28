@@ -23,6 +23,9 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.H2Dialect
 
+frontend:
+  domain: localhost:3000
+
 logging:
   level:
     org.springframework.security: DEBUG

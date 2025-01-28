@@ -15,4 +15,5 @@ public interface PrescriptionService {
 
     Page<Prescription> getAllPrescription(int page, int size);
 
+    Object getById(Long id);
 }

@@ -29,7 +29,7 @@ public class PrescriptionController {
 
     @GetMapping("/prescription/{id}")
     public ResponseEntity<?> getByIdForEdit(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(prescriptionService.deletePrescription(id));
+        return ResponseEntity.ok(prescriptionService.getById(id));
     }
 
     @PutMapping("/prescription/{id}")
