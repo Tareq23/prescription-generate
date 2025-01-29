@@ -43,7 +43,14 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf(AbstractHttpConfigurer::disable).cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .authorizeHttpRequests(request -> request.requestMatchers("/api/v1/auth/**", "/api/v1/prescription","/h2-console/**", "/swagger-ui/**", "/swagger/**").permitAll().anyRequest().authenticated())
+                .authorizeHttpRequests(request -> request.requestMatchers(
+                        "/api/v1/auth/**",
+                        "/api/v1/prescription",
+                        "/h2-console/**",
+                        "/v3/api-docs/**",
+                        "/swagger-resources/**",
+                        "/swagger-ui/**",
+                        "/swagger/**").permitAll().anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(
                         jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
