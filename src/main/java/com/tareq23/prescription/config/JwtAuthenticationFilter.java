@@ -78,6 +78,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         logger.debug("request.getServletPath().startsWith(\"/api/v1/auth/\")[{} : {}",request.getServletPath(), request.getServletPath().startsWith("/auth/"));
-        return request.getServletPath().startsWith("/api/v1/auth/");
+        return request.getServletPath().startsWith("/api/v1/auth/") || request.getServletPath().equals("/api/v1/prescription");
     }
 }
