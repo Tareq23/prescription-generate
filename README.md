@@ -28,6 +28,14 @@ A RESTful API built with Java and Spring Boot for generating and managing prescr
    Open this project with IntelliJ IDEA and click on Run icon
    ```
 
+## Run with Docker
+You can pull the latest Docker image and run the container using:
+```bash
+docker pull tareq23/prescription-service:v1.0.0
+docker run -p 9090:9090 tareq23/prescription-service:v1.0.0
+```
+
+
 ## API Documentation
 After running the application, you can access the Swagger UI:
 ```

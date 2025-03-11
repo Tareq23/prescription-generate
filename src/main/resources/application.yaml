@@ -52,6 +52,10 @@ springdoc:
     security:
       - bearerAuth: [ ]
 
+resources:
+  static:
+    data:
+      prescription: static/data/prescription.json
 
 
 
