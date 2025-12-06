@@ -4,18 +4,31 @@ on:
     branches: [main]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Checkout Repo
+  #     uses: actions/checkout@v3
+
+  #   - name: Setup Java
+  #     uses: actions/setup-java@v3
+  #     with:
+  #       java-version: '21'
+  #       distribution: 'temurin'
+
+  #   - name: Build JAR  
+  #     run: mvn clean install
+  deploy:
+    runs-on: self-hosted
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
 
-    - name: Setup Java
-      uses: actions/setup-java@v3
-      with:
-        java-version: '21'
-        distribution: 'temurin'
+    - name: Build JAR
+      run: mvn clean install
 
-    - name: Build JAR  
-      run: mvn clean install  
+    - name: Deploy to Server
+      run:
+        cp target/*.jar /opt/backend-app/app.jar
+        sudo systemctl restart backend  
 
