@@ -23,7 +23,7 @@ public class PrescriptionController {
     }
 
     @GetMapping("/prescription")
-    public ResponseEntity<?> getAllPrescription(@RequestParam("page") int page, @RequestParam("limit") int limit) {
+    public ResponseEntity<?> getAllPrescription(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "limit", defaultValue = "20") int limit) {
         return ResponseEntity.ok(prescriptionService.getAllPrescription(page, limit));
     }
 
