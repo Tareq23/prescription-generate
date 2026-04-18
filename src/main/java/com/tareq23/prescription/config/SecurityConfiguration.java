@@ -49,6 +49,7 @@ public class SecurityConfiguration {
 
         http.csrf(AbstractHttpConfigurer::disable).cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(request -> request.requestMatchers(
+                        "/",
                         "/api/v1/auth/**",
                         "/api/v1/prescription",
                         "/h2-console/**",
