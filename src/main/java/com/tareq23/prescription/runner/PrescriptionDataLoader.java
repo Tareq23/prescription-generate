@@ -15,6 +15,6 @@ public class PrescriptionDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        fileService.loadPrescriptionsFromJson();
+
     }
 }

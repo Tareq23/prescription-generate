@@ -1,13 +1,18 @@
-
-FROM openjdk:17-jdk-slim
-
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
 
-ADD target/prescription-service.jar prescription-service.jar
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-COPY src/main/resources/static/data/prescription.json /app/data/prescription.json
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-EXPOSE 9090
+# -------- Runtime stage --------
+FROM eclipse-temurin:17-jre
+WORKDIR /app
 
-ENTRYPOINT ["java", "-jar", "prescription-service.jar"]
+COPY --from=build /app/target/*.jar app.jar
 
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
